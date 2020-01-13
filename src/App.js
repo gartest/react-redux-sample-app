@@ -1,25 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {AppBar, Toolbar, Typography, Grid} from "@material-ui/core"
+import Categorias from './Components/Categorias/view';
+import Productos from './Components/Productos/view';
+import { Provider } from 'react-redux';
+import store from './config/store';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6">
+            Aplicación de ejemplo React + Material + Redux
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <Grid container spacing={2}>
+        <Categorias/>
+        <Productos/>
+      </Grid>
+    </Provider>
   );
 }
 
